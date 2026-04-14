@@ -1,17 +1,49 @@
 {
-  "name": "SecureNetXZone",
+  "name": "securenetxzone",
   "version": "1.0.0",
   "main": "main.js",
   "scripts": {
     "build": "electron-builder"
   },
   "devDependencies": {
-    "electron": "^28.0.0",
-    "electron-builder": "^24.0.0"
+    "electron": "^25.0.0",
+    "electron-builder": "latest"
   },
   "build": {
-    "appId": "com.snxz.securenetxzone",
-    "win": { "target": "portable" },
-    "mac": { "target": "dmg" }
+    "appId": "com.snxz.snxzcz",
+    "productName": "SecureNetXZone",
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": "portable",
+      "icon": "logo.ico"
+    },
+    "mac": {
+      "target": [
+        "dmg"
+      ],
+      "arch": [
+        "x64",
+        "arm64"
+      ],
+      "icon": "logo.icns",
+      "category": "public.app-category.utilities"
+    },
+    "dmg": {
+      "contents": [
+        {
+          "x": 410,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        },
+        {
+          "x": 130,
+          "y": 150,
+          "type": "file"
+        }
+      ]
+    }
   }
 }
