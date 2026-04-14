@@ -6,7 +6,7 @@
     "build": "electron-builder"
   },
   "devDependencies": {
-    "electron": "^25.0.0",
+    "electron": "^30.0.0",
     "electron-builder": "latest"
   },
   "build": {
@@ -16,12 +16,20 @@
       "output": "dist"
     },
     "win": {
-      "target": "portable"
+      "target": "portable",
+      "icon": "logo.ico"
     },
     "mac": {
       "target": ["dmg"],
       "arch": ["x64", "arm64"],
+      "icon": "logo.icns",
       "category": "public.app-category.utilities"
+    },
+    "dmg": {
+      "contents": [
+        { "x": 410, "y": 150, "type": "link", "path": "/Applications" },
+        { "x": 130, "y": 150, "type": "file" }
+      ]
     }
   }
 }
