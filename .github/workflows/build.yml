@@ -1,34 +1,35 @@
-{
-  "name": "SecureNetXZone",
-  "version": "1.0.0",
-  "main": "main.js",
-  "scripts": {
-    "build": "electron-builder"
-  },
-  "devDependencies": {
-    "electron": "^25.0.0",
-    "electron-builder": "latest"
-  },
-  "build": {
-    "appId": "com.snxz.snxzcz",
-    "directories": {
-      "output": "dist"
-    },
-    "win": {
-      "target": "portable",
-      "icon": "logo.ico"
-    },
-    "mac": {
-      "target": ["dmg"],
-      "arch": ["x64", "arm64"],
-      "icon": "logo.icns",
-      "category": "public.app-category.utilities"
-    },
-    "dmg": {
-      "contents": [
-        { "x": 410, "y": 150, "type": "link", "path": "/Applications" },
-        { "x": 130, "y": 150, "type": "file" }
-      ]
-    }
-  }
-}
+name: Build App
+on: [push]
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [windows-latest, macos-latest]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Dependencies
+        run: |
+          npm install
+
+      - name: Build App
+        run: npm run build
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-build-${{ matrix.os }}
+          path: |
+            dist/*.exe
+            dist/*.dmg
