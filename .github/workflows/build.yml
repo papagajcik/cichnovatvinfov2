@@ -1,24 +1,24 @@
-name: Build Desktop App
+name: Build App
 on: [push]
-
 jobs:
-  release:
+  build:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         os: [windows-latest, macos-latest]
-
     steps:
-      - name: Check out git repository
+      - name: Checkout code
         uses: actions/checkout@v3
-
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
-
       - name: Install dependencies
         run: npm install
-
-      - name: Build and Publish
+      - name: Build app
         run: npm run build
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-${{ matrix.os }}
+          path: dist/*.{exe,dmg}
