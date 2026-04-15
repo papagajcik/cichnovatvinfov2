@@ -2,7 +2,7 @@
   "name": "securenetxzone",
   "version": "1.0.0",
   "description": "SecureNet X Zone Desktop App",
-  "author": "Your Name",
+  "author": "SecureNetXZone",
   "main": "main.js",
   "scripts": {
     "build": "electron-builder"
@@ -18,26 +18,30 @@
       "output": "dist"
     },
     "win": {
-  "target": [
-    {
-      "target": "nsis",
-      "arch": ["x64"]
-    }
-  ],
-  "icon": "logo.ico"
-},
-"nsis": {
-  "oneClick": false,
-  "allowToChangeInstallationDirectory": true,
-  "createDesktopShortcut": true,
-  "shortcutName": "SecureNetXZone"
-}
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "logo.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "shortcutName": "SecureNetXZone"
     },
     "mac": {
       "target": [
         {
           "target": "dmg",
-          "arch": ["x64", "arm64"]
+          "arch": [
+            "x64",
+            "arm64"
+          ]
         },
         {
           "target": "pkg"
