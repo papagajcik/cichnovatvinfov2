@@ -18,23 +18,36 @@
       "output": "dist"
     },
     "win": {
-      "target": "portable",
-      "icon": "logo.ico"
+  "target": [
+    {
+      "target": "nsis",
+      "arch": ["x64"]
+    }
+  ],
+  "icon": "logo.ico"
+},
+"nsis": {
+  "oneClick": false,
+  "allowToChangeInstallationDirectory": true,
+  "createDesktopShortcut": true,
+  "shortcutName": "SecureNetXZone"
+}
     },
     "mac": {
       "target": [
         {
           "target": "dmg",
-          "arch": [
-            "x64",
-            "arm64"
-          ]
+          "arch": ["x64", "arm64"]
+        },
+        {
+          "target": "pkg"
         }
       ],
       "icon": "logo.icns",
       "category": "public.app-category.utilities"
     },
     "dmg": {
+      "title": "Instalace SecureNetXZone",
       "contents": [
         {
           "x": 410,
