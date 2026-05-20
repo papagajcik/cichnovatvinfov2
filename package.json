@@ -1,8 +1,8 @@
 {
-  "name": "securenetxzone",
+  "name": "cichnovatvinfov2",
   "version": "1.0.0",
-  "description": "SecureNet X Zone Desktop App",
-  "author": "SecureNetXZone",
+  "description": "CichnovaTV Desktop App",
+  "author": "MatousPapousek",
   "main": "main.js",
   "scripts": {
     "build": "electron-builder"
@@ -12,8 +12,8 @@
     "electron-builder": "latest"
   },
   "build": {
-    "appId": "com.snxz.snxzcz",
-    "productName": "SecureNetXZone",
+    "appId": "com.papousek.cichnovatv",
+    "productName": "CichnovaTVinfo",
     "directories": {
       "output": "dist"
     },
@@ -32,7 +32,7 @@
       "oneClick": false,
       "allowToChangeInstallationDirectory": true,
       "createDesktopShortcut": true,
-      "shortcutName": "SecureNetXZone"
+      "shortcutName": "CichnovaTVinfo"
     },
     "mac": {
       "target": [
@@ -51,7 +51,7 @@
       "category": "public.app-category.utilities"
     },
     "dmg": {
-      "title": "Instalace SecureNetXZone",
+      "title": "Instalace CichnovaTVinfo",
       "contents": [
         {
           "x": 410,
