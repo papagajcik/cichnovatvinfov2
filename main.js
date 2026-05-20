@@ -8,7 +8,7 @@ function createWindow () {
     webPreferences: { nodeIntegration: false }
   })
 
-  win.loadURL('https://app.snxz.cz') // Zde změňte URL!
+  win.loadURL('https://cichnovabrno.papousek.eu/admin') // Zde změňte URL!
 }
 
 app.whenReady().then(createWindow)
